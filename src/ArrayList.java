@@ -20,6 +20,7 @@ public class ArrayList implements StringList {
 
     @Override
     public String add(String item) {
+        checkNullItem(item);
         if (this.size() >= strings.length) {
             throw new ArrayListException("List is full.");
         }
@@ -29,6 +30,7 @@ public class ArrayList implements StringList {
 
     @Override
     public String add(int index, String item) {
+        checkNullItem(item);
         if (index >= strings.length) {
             throw new ArrayListException("Index doesn't exist.");
         }
@@ -50,6 +52,7 @@ public class ArrayList implements StringList {
 
     @Override
     public String set(int index, String item) {
+        checkNullItem(item);
         if (index >= strings.length) {
             throw new ArrayListException("Index doesn't exist.");
         }
@@ -59,6 +62,7 @@ public class ArrayList implements StringList {
 
     @Override
     public String remove(String item) {
+        checkNullItem(item);
         boolean exception = true;
         for (int i = 0; i < this.size(); i++) {
             if (strings[i].equals(item)) {
@@ -87,6 +91,7 @@ public class ArrayList implements StringList {
 
     @Override
     public boolean contains(String item) {
+        checkNullItem(item);
         for (int i = 0; i < this.size(); i++) {
             if (strings[i].equals(item)) {
                 return true;
@@ -97,6 +102,7 @@ public class ArrayList implements StringList {
 
     @Override
     public int indexOf(String item) {
+        checkNullItem(item);
         for (int i = 0; i < this.size(); i++) {
             if (strings[i].equals(item)) {
                 return i;
@@ -107,6 +113,7 @@ public class ArrayList implements StringList {
 
     @Override
     public int lastIndexOf(String item) {
+        checkNullItem(item);
         for (int i = this.size() - 1, j = 0; i >= 0; i--, j++) {
             if (strings[i].equals(item)) {
                 return j;
@@ -191,5 +198,11 @@ public class ArrayList implements StringList {
             res += strings[i] + divider;
         }
         return res.substring(0, res.length() - divider.length());
+    }
+
+    public void checkNullItem(String item) {
+        if (item == null) {
+            throw new ArrayListException("Item can't be Null.");
+        }
     }
 }

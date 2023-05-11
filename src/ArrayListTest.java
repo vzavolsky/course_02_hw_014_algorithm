@@ -1,6 +1,8 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 public class ArrayListTest {
 
     private final ArrayList arrayList = new ArrayList(10);
@@ -14,5 +16,4 @@ public class ArrayListTest {
         arrayList.add("Third");
         arrayList.add("Fourth");
     }
-
 }

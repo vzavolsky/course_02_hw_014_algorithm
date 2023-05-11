@@ -200,9 +200,13 @@ public class ArrayList implements StringList {
         return res.substring(0, res.length() - divider.length());
     }
 
-    public void checkNullItem(String item) {
+    private void checkNullItem(String item) {
         if (item == null) {
             throw new ArrayListException("Item can't be Null.");
         }
+    }
+
+    public int length() {
+        return strings.length;
     }
 }
